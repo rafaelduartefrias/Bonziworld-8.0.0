@@ -1202,7 +1202,7 @@ var _createClass = (function () {
                 (this.framerate = 1 / 15),
                 (this.spriteSheets = {}),
                 (this.prepSprites = function () {
-                    for (var a = ["purple", "peedy", "clippy", "genie", "merlin", "pope", "bonzi", "rover"], b = 0; b < a.length; b++) {
+                    for (var a = ["purple", "peedy", "clippy", "genie", "merlin", "pope", "king", "bonzi", "rover"], b = 0; b < a.length; b++) {
                        var c = a[b];
                        var d = this
                        if (c == 'bonzi') {
