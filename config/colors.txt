@@ -4,4 +4,6 @@ clippy
 genie
 merlin
 bonzi
+floyd
+jew
 rover
