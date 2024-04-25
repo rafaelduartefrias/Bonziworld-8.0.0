@@ -19,6 +19,7 @@
 	<script src="./lib/speakjs/speakClient.js"></script>
 	<script src="./lib/jquery.contextMenu.min.js"></script>
   <script src="./lib/mswindow.js"></script>
+  <script src="./js/bonzi.js"></script>
 
 
   <script src="https://kit.fontawesome.com/7eb4dccc86.js" crossorigin="anonymous"></script>
@@ -297,6 +298,44 @@
 				<div id="login_apps" class="app_showcase"></div>
 			</div>
 		</div>
+		<div class="xp_window" id="bonzi_speak_window" style="display:none">
+            <div class="xp_window_bar">
+                <div class="xp_window_close"></div>
+                <div class="xp_window_icon"></div>
+                <div class="xp_window_text">Speak Bonzi, Speak!</div>
+            </div>
+            <div class="bonzi_speak_button" id="bonzi_speak_say">Say it!</div>
+            <div class="bonzi_speak_button xp_window_cancel" id="bonzi_speak_cancel">Cancel</div>
+            <textarea id="bonzi_speak_text"></textarea>
+        </div>
+        <div class="xp_window" id="bonzi_chat_window" style="display:none">
+            <div class="xp_window_bar">
+                <div class="xp_window_icon"></div>
+                <div class="xp_window_text">BonziCHAT</div>
+            </div>
+            <div class="bonzi_chat_button" id="bonzi_chat_say"></div>
+            <div id="bonzi_chat_messages"></div>
+            <div id="bonzi_chat_online"></div>
+            <input id="bonzi_chat_text" type="text" placeholder="To chat click here. Chat '/?' or '/help' for help.">
+        </div>
+        <div id="bonzi_cont" class="bonzi">
+            <canvas id="canvas" class="canvas_bonzi" width="200" height="160"></canvas>
+            <p class="bubble_xp" id="bonzi_xp_bubble" style="display: none; margin-left: 200px; margin-top: 50px;"></p>
+        </div>
+        <div id="bonzi_xp_menu" class="xp_menu xp_menu_root">
+            <div class="xp_menu_list">
+
+                <div id="bonzi_speak">Speak</div>
+                <div id="bonzi_joke">Tell a Joke</div>
+                <div id="bonzi_fact">Tell an Amazing Fact</div>
+                <div id="bonzi_sing">Sing a Song</div>
+                <div id="bonzi_personality">Personality Settings</div>
+                <div onclick="if (!window.__cfRLUnblockHandlers) return false; window.open('outlookcal://')">Calendar</div>
+
+                <div id="xp_menu_animate">Animate!</div>
+                <div id="xp_menu_hide">Hide</div>
+            </div>
+        </div>
 	</div>
 
 	<div id="titlebar">
