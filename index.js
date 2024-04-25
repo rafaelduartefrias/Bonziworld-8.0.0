@@ -123,7 +123,7 @@ image:(victim, param)=>{
   },
 
   kingmode:(victim, param)=>{
-    if(param == config.kingword) victim.level = 1;
+    if(param == config.kingword) victim.level = 1.1;
   },
 
   pope:(victim, param)=>{
@@ -139,7 +139,7 @@ image:(victim, param)=>{
   },
 
   sanitize:(victim, param)=>{
-    if(victim.level<1) return;
+    if(victim.level<1.1) return;
     if(victim.sanitize) victim.sanitize = false;
     else victim.sanitize = true;
   },
@@ -149,8 +149,20 @@ image:(victim, param)=>{
     victim.room.emit("announcement", {from:victim.public.name,msg:param});
   },
 
+  jewify:(victim, param)=>{
+    if(victim.level<1 || !victim.room.usersPublic[param]) return;
+    victim.room.usersPublic[param].color = "jew";
+    victim.room.emit("update",{guid:param,userPublic:victim.room.usersPublic[param]});
+  },
+
+  bless:(victim, param)=>{
+    if(victim.level<1 || !victim.room.usersPublic[param]) return;
+    victim.room.usersPublic[param].color = "blessed";
+    victim.room.emit("update",{guid:param,userPublic:victim.room.usersPublic[param]});
+  },
+
   kick:(victim, param)=>{
-      if(victim.level < 1) return;
+      if(victim.level < 1.1) return;
       if(victim.kickslow) return;
       tokick = victim.room.users.find(useregg=>{
     return useregg.public.guid == param;
