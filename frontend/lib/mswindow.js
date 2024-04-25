@@ -19,7 +19,7 @@ class msWindow {
         })
         document.body.insertAdjacentHTML("beforeend", `
             <div id='${this.id}p' style='top:${y}px;left:${x}px;height: ${height}px;width: ${width}px;' class='msWindow_cont'>
-            <p id='${this.id}t' class='msWindow_title'>${title}<button class="log_close" id='${this.id}close'><i class='fa fa-close'></i></button></p>
+            <p id='${this.id}t' class='msWindow_title'>${title}<button class="log_close" id='${this.id}close'><i class='bi bi-x'></i></button></p>
             <div class='msWindow_body'>${html}</div>
             </div>
             `);
