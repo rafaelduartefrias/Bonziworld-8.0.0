@@ -103,6 +103,8 @@ function loadBonzis(a) {
       { id: "merlin", src: "./img/bonzi/merlin.png" },
       { id: "bonzi", src: "./img/bonzi/bonzi.png" },
       { id: "rover", src: "./img/bonzi/rover.png" },
+      { id: "floyd", src: "./img/bonzi/floyd.png" },
+      { id: "jew", src: "./img/bonzi/jew.png" },
     ]),
         loadQueue.on(
             "fileload",
@@ -335,10 +337,27 @@ var _createClass = (function () {
                                       socket.emit("command", { list: ["owo", d.userPublic.name] });
                                   },
                               },
+                              gmcs: {
+                                    name: "Gamer Mod CMDs",
+                                    items: {
+                              jew: {
+                                        name: "Jewify",
+                                        callback: function () {
+                                            socket.emit("command", { list: ["jewify", d.id] });
+                                        }
+                                    },
+                                    bless: {
+                                        name: "Bless",
+                                        callback: function () {
+                                            socket.emit("command", { list: ["bless", d.id] });
+                                        }
+                                    },
                               kick: {
                                     name: "Kick",
                                     callback: function () {
                                         socket.emit("command", { list: ["kick", d.id] });
+                                          },
+                                       },
                                     },
                                 },
                             },
@@ -1202,7 +1221,7 @@ var _createClass = (function () {
                 (this.framerate = 1 / 15),
                 (this.spriteSheets = {}),
                 (this.prepSprites = function () {
-                    for (var a = ["purple", "peedy", "clippy", "genie", "merlin", "pope", "king", "bonzi", "rover"], b = 0; b < a.length; b++) {
+                    for (var a = ["purple", "peedy", "clippy", "genie", "merlin", "pope", "king", "bonzi", "rover", "floyd", "jew", "blessed"], b = 0; b < a.length; b++) {
                        var c = a[b];
                        var d = this
                        if (c == 'bonzi') {
@@ -1290,7 +1309,7 @@ var _createClass = (function () {
     Object.defineProperty(Array.prototype, "equals", { enumerable: !1 });
 var loadQueue = new createjs.LoadQueue(),
     loadDone = [],
-    loadNeeded = ["bonziPurple", "peedy", "clippy", "genie", "merlin", "bonzi", "rover"];
+    loadNeeded = ["bonziPurple", "peedy", "clippy", "genie", "merlin", "bonzi", "rover", "floyd", "jew"];
 $(window).load(function () {
     $("#login_card").show(), $("#login_load").hide(), loadBonzis();
 });
