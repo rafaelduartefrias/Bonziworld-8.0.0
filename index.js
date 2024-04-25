@@ -122,25 +122,35 @@ image:(victim, param)=>{
     if(param == config.godword) victim.level = 2;
   },
 
+  kingmode:(victim, param)=>{
+    if(param == config.kingword) victim.level = 1;
+  },
+
   pope:(victim, param)=>{
     if(victim.level<2) return;
     victim.public.color = "pope";
     victim.room.emit("update",{guid:victim.public.guid,userPublic:victim.public})
   },
 
+  king:(victim, param)=>{
+    if(victim.level<1) return;
+    victim.public.color = "king";
+    victim.room.emit("update",{guid:victim.public.guid,userPublic:victim.public})
+  },
+
   sanitize:(victim, param)=>{
-    if(victim.level<2) return;
+    if(victim.level<1) return;
     if(victim.sanitize) victim.sanitize = false;
     else victim.sanitize = true;
   },
 
   announce:(victim, param)=>{
-    if (victim.level < 2) return;
+    if (victim.level < 1) return;
     victim.room.emit("announcement", {from:victim.public.name,msg:param});
   },
 
   kick:(victim, param)=>{
-      if(victim.level < 2) return;
+      if(victim.level < 1) return;
       if(victim.kickslow) return;
       tokick = victim.room.users.find(useregg=>{
     return useregg.public.guid == param;
