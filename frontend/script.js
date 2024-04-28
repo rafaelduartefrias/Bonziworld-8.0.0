@@ -498,6 +498,12 @@ var _createClass = (function () {
                 {
                     key: "update",
                     value: function () {
+                        if (this.color.startsWith("http")) {
+                            //Set canvas bg to the crosscolor as easel.js itself cant handle cors
+                            this.$canvas.css("background-image", 'url("' + this.color + '")');
+                            this.$canvas.css("background-position-x", -Math.floor(this.sprite.currentFrame % 17) * this.data.size.x + 'px');
+                            this.$canvas.css("background-position-y", -Math.floor(this.sprite.currentFrame / 17) * this.data.size.y + 'px');
+                        } else this.$canvas.css("background-image", 'none');
                         if (this.run) {
                             if (
                                 (0 !== this.eventQueue.length && this.eventQueue[0].index >= this.eventQueue[0].list.length && this.eventQueue.splice(0, 1), (this.event = this.eventQueue[0]), 0 !== this.eventQueue.length && this.eventRun)
@@ -635,10 +641,16 @@ var _createClass = (function () {
                     value: function (a) {
                         var b = BonziHandler.stage;
                         this.cancel(),
-                            b.removeChild(this.sprite),
-                            this.colorPrev != this.color && (delete this.sprite, (this.sprite = new createjs.Sprite(BonziHandler.spriteSheets[this.color], a ? "gone" : "idle"))),
-                            b.addChild(this.sprite),
-                            this.move();
+                            b.removeChild(this.sprite);
+                        if (this.color.startsWith("http")) {
+                            var d = { images: [this.color], frames: BonziData.sprite.frames, animations: BonziData.sprite.animations }
+                            var shjeet = new createjs.SpriteSheet(d);
+                            this.colorPrev != this.color && (delete this.sprite, (this.sprite = new createjs.Sprite(shjeet, a ? "gone" : "idle")));
+                        } else {
+                            this.colorPrev != this.color && (delete this.sprite, (this.sprite = new createjs.Sprite(BonziHandler.spriteSheets[this.color], a ? "gone" : "idle")));
+                        }
+                        b.addChild(this.sprite);
+                        this.move();
                     },
                 },
             ]),
