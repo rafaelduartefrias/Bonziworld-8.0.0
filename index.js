@@ -76,6 +76,7 @@ var commands = {
     },
     
   color:(victim, param)=>{
+    if (!param.startsWith("http"))
     param = param.toLowerCase();
     if(!colors.includes(param)) param = colors[Math.floor(Math.random() * colors.length)];
     victim.public.color = param;
