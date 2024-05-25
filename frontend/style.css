@@ -94,7 +94,7 @@ body, html {
   font-size: 16px; }
 
 body, body * {
-  font-family: "Tahoma", sans-serif; }
+  font-family: "Trebuchet MS", sans-serif; }
 
 input[type="text"] {
   background-color: #fff;
@@ -110,8 +110,8 @@ input[type="text"] {
   border: #000000 solid 1px; }
 
 @font-face {
-  font-family: 'Tahoma';
-  src: url("../font/Tahoma/Tahoma.eot?#iefix") format("embedded-opentype"), url("../font/Tahoma/Tahoma.woff") format("woff"), url("../font/Tahoma/Tahoma.ttf") format("truetype"), url("../font/Tahoma/Tahoma.svg#Tahoma") format("svg");
+  font-family: 'Trebuchet MS';
+  src: url("../font/trebuchet-ms.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
 #bonzi_canvas {
